@@ -1,0 +1,137 @@
+// Mixins
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage);
+}
+
+$editor-colors: (
+	"black": #000,
+	"white": #fff,
+	"primary": $color-1,
+	"secondary": $color-2,
+	"color-1": $color-3,
+	"color-2": $color-4,
+	"color-3": $color-5,
+	"color-4": $color-6
+);
+
+// Combine SVG and Hex versions of colors later so it can be used in multiple functions
+$editor-colors-combined: (
+	"black": (
+		"hex": #000,
+		"svg": "000000"
+	),
+	"white": (
+		"hex": #fff,
+		"svg": "ffffff"
+	),
+	"primary": (
+		"hex": $color-1,
+		"svg": $color-1-svg
+	),
+	"secondary": (
+		"hex": $color-2,
+		"svg": $color-2-svg
+	),
+	"color-1": (
+		"hex": $color-3,
+		"svg": $color-3-svg
+	),
+	"color-2": (
+		"hex": $color-4,
+		"svg": $color-4-svg
+	),
+	"color-3": (
+		"hex": $color-5,
+		"svg": $color-5-svg
+	),
+	"color-4": (
+		"hex": $color-6,
+		"svg": $color-6-svg
+	)
+);
+
+$editor-colors-svg: (
+	"black": "000000",
+	"white": "ffffff",
+	"primary": $color-1-svg,
+	"secondary": $color-2-svg,
+	"color-1": $color-3-svg,
+	"color-2": $color-4-svg,
+	"color-3": $color-5-svg,
+	"color-4": $color-6-svg
+);
+
+@mixin add-button-color-classes {
+
+	@each $name,
+	$hex in $editor-colors {
+		&-#{$name}-color {
+			color: $hex;
+			border-color: $hex;
+			box-shadow: inset 2px 0 0 0 $hex, inset -2px 0 0 0 $hex, inset 0 2px 0 0 $hex, inset 0 -2px 0 0 $hex;
+			
+			&::after {
+				background: $hex;
+			}
+			&:hover {
+				@if $name =='secondary' {
+					color: $primary !important;
+				}
+
+				@else {
+					@if $name =='white' {
+						color: #000 !important;
+					}
+
+					@else {
+						color: #fff !important;
+					}
+				}
+
+				// background-color: $hex;
+				&::after {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+}
+
+@mixin add-text-link-with-arrow-color-classes {
+
+	@each $name,
+	$hex in $editor-colors {
+		&-#{$name}-color {
+			color: $hex;
+
+			&::after {
+				background: $hex;
+			}
+
+			&:hover {
+				@if $name =='secondary' {
+					color: $primary !important;
+				}
+
+				@else {
+					@if $name =='white' {
+						color: #000 !important;
+					}
+
+					@else {
+						color: #fff !important;
+					}
+				}
+
+				// background-color: $hex;
+				&::after {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+}

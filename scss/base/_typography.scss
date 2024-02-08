@@ -1,0 +1,31 @@
+// Weights
+$light: 300;
+$regular: 400;
+$medium: 500;
+$demi: 600;
+$semi-bold: $demi;
+$bold: 700;
+$extra-bold: 800;
+$black: 800;
+
+*,
+*::before,
+*::after {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	@include font-size(18px);
+	@include rfs(28px, line-height);
+}
+
+a {
+	color: $color-5;
+	transition: 0.25s color;
+
+	&:hover {
+		color: $color-1;
+	}
+}
