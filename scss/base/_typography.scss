@@ -6,7 +6,7 @@ $demi: 600;
 $semi-bold: $demi;
 $bold: 700;
 $extra-bold: 800;
-$black: 800;
+$black: 900;
 
 *,
 *::before,
@@ -17,8 +17,8 @@ $black: 800;
 }
 
 body {
-	@include font-size(18px);
-	@include rfs(28px, line-height);
+	@include font-size(20px);
+	@include rfs(29px, line-height);
 }
 
 a {

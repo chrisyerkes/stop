@@ -68,10 +68,10 @@ License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
   --stop-dark-border-subtle: #adb5bd;
   --stop-white-rgb: 255, 255, 255;
   --stop-black-rgb: 0, 0, 0;
-  --stop-font-sans-serif: "Bitter", serif;
+  --stop-font-sans-serif: "Roboto", sans-serif;
   --stop-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --stop-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --stop-body-font-family: "Inter", sans-serif;
+  --stop-body-font-family: "Roboto", sans-serif;
   --stop-body-font-size: 1rem;
   --stop-body-font-weight: 400;
   --stop-body-line-height: 1.5;
@@ -10088,12 +10088,12 @@ occurrences on the page. */
 }
 
 body {
-  font-size: 1.125rem;
-  line-height: calc(1.3rem + 0.6vw);
+  font-size: 1.25rem;
+  line-height: calc(1.30625rem + 0.675vw);
 }
 @media (min-width: 1200px) {
   body {
-    line-height: 1.75rem;
+    line-height: 1.8125rem;
   }
 }
 
