@@ -10105,6 +10105,11 @@ a {
 a:hover {
   color: #CE2C21;
 }
+a svg,
+a svg path {
+  -webkit-transition: 0.25s fill;
+  transition: 0.25s fill;
+}
 
 img {
   max-width: 100%;
@@ -10120,6 +10125,34 @@ the time to think about the elements
 that are common across all components 
 of the page and use class selectors 
 where appropriate. */
+#MainHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+}
+#MainHeader .navbar-brand {
+  padding-top: calc(1.28125rem + 0.375vw);
+  padding-bottom: calc(1.28125rem + 0.375vw);
+  -webkit-transition: 0.25s all;
+  transition: 0.25s all;
+}
+@media (min-width: 1200px) {
+  #MainHeader .navbar-brand {
+    padding-top: 1.5625rem;
+  }
+}
+@media (min-width: 1200px) {
+  #MainHeader .navbar-brand {
+    padding-bottom: 1.5625rem;
+  }
+}
+#MainHeader .navbar-brand img {
+  max-width: 220px;
+}
+
 /* As briefly mentioned in the previous 
 section, a Module is a more discrete 
 component of the page. It is your 
@@ -10142,6 +10175,49 @@ will likely contain a number of elements
 and there is likely to be a desire to 
 use descendent or child selectors to 
 target those elements. */
+.btn.header-cart-btn {
+  margin-left: 0.9375rem;
+}
+.btn.header-cart-btn svg {
+  width: 18px;
+  height: 16px;
+}
+.btn.header-cart-btn:hover svg path {
+  fill: #CE2C21;
+}
+.btn.header-btn {
+  margin-left: 1rem;
+  color: #CE2C21 !important;
+  border: 1px solid #CE2C21;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  line-height: 1;
+  border-radius: 3px;
+  padding: 0.625rem 1rem !important;
+}
+.btn.header-btn:hover {
+  background-color: #CE2C21;
+  color: #fff !important;
+}
+
+.main-nav .nav-item .nav-link {
+  font-size: calc(1.275rem + 0.3vw);
+  line-height: 1;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  padding: 0.375rem 1rem;
+  color: #000;
+}
+@media (min-width: 1200px) {
+  .main-nav .nav-item .nav-link {
+    font-size: 1.5rem;
+  }
+}
+.main-nav .nav-item .nav-link:hover {
+  color: #CE2C21;
+}
+
 /* A state is something that augments 
 and overrides all other styles. For 
 example, an accordion section may be 
@@ -10153,4 +10229,26 @@ States are generally applied to the
 same element as a layout rule or 
 applied to the same element as a base 
 module class. */
+.scrolled #MainHeader .navbar-brand {
+  padding-top: 1px;
+  padding-bottom: 3px;
+  overflow: hidden;
+  width: 44px;
+}
+.scrolled #MainHeader .navbar-brand img {
+  max-width: 150px;
+}
+.scrolled #MainHeader .main-nav .nav-item .nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.scrolled #MainHeader .main-nav .nav-item .nav-link.header-btn {
+  border: none;
+  font-weight: 400;
+  margin-left: 0;
+  padding: 0.375rem 1rem !important;
+}
+.scrolled #MainHeader .main-nav .nav-item .nav-link.header-cart-btn {
+  margin-left: 0;
+}
 /*# sourceMappingURL=style.css.map */

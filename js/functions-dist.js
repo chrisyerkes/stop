@@ -1,2 +1,2 @@
-"use strict";
+"use strict";function addClassOnScroll(){window.addEventListener("scroll",(function(){window.scrollY>0?document.body.classList.add("scrolled"):document.body.classList.remove("scrolled")}))}addClassOnScroll();
 //# sourceMappingURL=functions-dist.js.map

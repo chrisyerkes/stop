@@ -14,3 +14,36 @@ module class. */
 
 // https://smacss.com/book/
 
+// Nav Scrolled State
+.scrolled {
+	#MainHeader {
+		.navbar-brand {
+			padding-top: 1px;
+			padding-bottom: 3px;
+			overflow: hidden;
+			width: 44px;
+
+			img {
+				max-width: 150px;
+			}
+		}
+		.main-nav {
+			.nav-item {
+				.nav-link {
+					font-size: 1rem;
+					font-weight: $regular;
+
+					&.header-btn {
+						border: none;
+						font-weight: $regular;
+						margin-left: 0;
+						@include padding(6px 16px !important);
+					}
+					&.header-cart-btn {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}

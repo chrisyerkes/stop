@@ -1,0 +1,18 @@
+#MainHeader {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	background-color: #fff;
+
+	.navbar-brand {
+		@include padding-top(25px);
+		@include padding-bottom(25px);
+		transition: 0.25s all;
+
+		img {
+			max-width: 220px;
+		}
+	}
+}

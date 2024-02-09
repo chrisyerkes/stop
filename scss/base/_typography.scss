@@ -28,4 +28,10 @@ a {
 	&:hover {
 		color: $color-1;
 	}
+	svg {
+		&,
+		path {
+			transition: 0.25s fill;
+		}
+	}
 }

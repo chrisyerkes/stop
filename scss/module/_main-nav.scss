@@ -1,0 +1,16 @@
+.main-nav {
+	.nav-item {
+		.nav-link {
+			@include font-size(24px);
+			line-height: 1;
+			font-family: $alt-sans;
+			font-weight: $light;
+			@include padding(6px 16px);
+			color: #000;
+
+			&:hover {
+				color: $color-1;
+			}
+		}
+	}
+}
