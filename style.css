@@ -10217,6 +10217,48 @@ target those elements. */
 .main-nav .nav-item .nav-link:hover {
   color: #CE2C21;
 }
+.main-nav .nav-item ul {
+  list-style: none;
+  padding: 0;
+}
+.main-nav .nav-item > .sub-menu, .main-nav .nav-item > .mega-sub-menu-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+}
+.main-nav .navbar-nav > .nav-item > .sub-menu, .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper {
+  padding: calc(1.4375rem + 2.25vw) calc(1.3125rem + 0.75vw);
+  border-top: 1px solid #000;
+  margin-top: 36px;
+}
+@media (min-width: 1200px) {
+  .main-nav .navbar-nav > .nav-item > .sub-menu, .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper {
+    padding: 3.125rem 1.875rem;
+  }
+}
+.main-nav .navbar-nav > .nav-item > .sub-menu .sub-menu, .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .sub-menu {
+  display: block;
+  position: relative;
+}
+.main-nav .navbar-nav > .nav-item > .sub-menu .mega-menu-row > ul.mega-sub-menu, .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row > ul.mega-sub-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main-nav .navbar-nav .nav-item,
+.main-nav .navbar-nav .sub-menu,
+.main-nav .navbar-nav .mega-sub-menu-wrapper {
+  display: none;
+}
+.main-nav .navbar-nav > .nav-item {
+  display: block;
+}
+.main-nav .navbar-nav > .nav-item:hover .mega-sub-menu-wrapper, .main-nav .navbar-nav > .nav-item:hover .mega-sub-menu-wrapper > .nav-item,
+.main-nav .navbar-nav > .nav-item:hover .sub-menu,
+.main-nav .navbar-nav > .nav-item:hover .sub-menu > .nav-item {
+  display: block;
+}
 
 /* A state is something that augments 
 and overrides all other styles. For 
@@ -10250,5 +10292,8 @@ module class. */
 }
 .scrolled #MainHeader .main-nav .nav-item .nav-link.header-cart-btn {
   margin-left: 0;
+}
+.scrolled #MainHeader .main-nav .navbar-nav > .nav-item > .sub-menu, .scrolled #MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper {
+  margin-top: 12px;
 }
 /*# sourceMappingURL=style.css.map */

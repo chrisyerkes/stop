@@ -44,6 +44,14 @@ module class. */
 					}
 				}
 			}
+			.navbar-nav {
+				& > .nav-item {
+					& > .sub-menu,
+					& > .mega-sub-menu-wrapper {
+						margin-top: 12px;
+					}
+				}
+			}
 		}
 	}
 }

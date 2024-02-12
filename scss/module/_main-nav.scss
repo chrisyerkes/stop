@@ -1,4 +1,5 @@
 .main-nav {
+	// Base Styles
 	.nav-item {
 		.nav-link {
 			@include font-size(24px);
@@ -10,6 +11,64 @@
 
 			&:hover {
 				color: $color-1;
+			}
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+		// Mega Menu Background and Positioning
+		& > .sub-menu,
+		& > .mega-sub-menu-wrapper {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			background-color: #fff;
+		}
+	}
+	.navbar-nav {
+		& > .nav-item {
+			// Mega Menu Column and Sub-Navigation Styles
+			& > .sub-menu,
+			& > .mega-sub-menu-wrapper {
+				@include padding(50px 30px);
+				border-top: 1px solid #000;
+				margin-top: 36px;
+
+				.sub-menu {
+					display: block;
+					position: relative;
+				}
+				.mega-menu-row {
+					& > ul.mega-sub-menu {
+						display: flex;
+					}
+				}
+			}
+		}
+	}
+	// Initial Show/hide state
+	.navbar-nav {
+		.nav-item,
+		.sub-menu,
+		.mega-sub-menu-wrapper {
+			display: none;
+		}
+		& > .nav-item {
+			display: block;
+		}
+	}
+	// On Hover
+	.navbar-nav {
+		& > .nav-item {
+			&:hover {
+				.mega-sub-menu-wrapper,
+				.sub-menu {
+					&,
+					& > .nav-item {
+						display: block;
+					}
+				}
 			}
 		}
 	}
