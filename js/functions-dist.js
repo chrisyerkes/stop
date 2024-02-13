@@ -1,2 +1,2 @@
-"use strict";function addClassOnScroll(){window.addEventListener("scroll",(function(){window.scrollY>0?document.body.classList.add("scrolled"):document.body.classList.remove("scrolled")}))}addClassOnScroll();
+"use strict";function addClassOnScroll(){window.addEventListener("scroll",(function(){window.scrollY>0?document.body.classList.add("scrolled"):document.body.classList.remove("scrolled")}))}addClassOnScroll(),document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".navbar-nav > .nav-item").forEach((function(e){e.addEventListener("mouseenter",(function(){var n=e.querySelector(":scope > .sub-menu");if(n){var t=e.offsetLeft+14;n.style.paddingLeft="".concat(t,"px")}}))}))}));
 //# sourceMappingURL=functions-dist.js.map

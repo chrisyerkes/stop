@@ -23,8 +23,11 @@ body {
 
 a {
 	color: $color-5;
-	transition: 0.25s color;
+	transition: 0.25s all;
 
+	&::before {
+		transition: 0.25s all;
+	}
 	&:hover {
 		color: $color-1;
 	}

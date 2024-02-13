@@ -14,3 +14,17 @@ function addClassOnScroll() {
 
 // Call the function to enable the functionality
 addClassOnScroll();
+
+document.addEventListener('DOMContentLoaded', function () {
+	const navItems = document.querySelectorAll('.navbar-nav > .nav-item');
+
+	navItems.forEach(function (navItem) {
+		navItem.addEventListener('mouseenter', function () {
+			const subMenu = navItem.querySelector(':scope > .sub-menu');
+			if (subMenu) {
+				const parentOffsetLeft = navItem.offsetLeft + 14;
+				subMenu.style.paddingLeft = `${parentOffsetLeft}px`;
+			}
+		});
+	});
+});
