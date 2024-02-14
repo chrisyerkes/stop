@@ -10652,4 +10652,11 @@ module class. */
 .scrolled #MainHeader .main-nav .navbar-nav > .nav-item > .sub-menu, .scrolled #MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper {
   margin-top: 12px;
 }
+
+.mega-sub-menu-column .stop-gray-card {
+  display: none;
+}
+.mega-sub-menu-column .stop-gray-card.active {
+  display: block;
+}
 /*# sourceMappingURL=style.css.map */

@@ -55,3 +55,12 @@ module class. */
 		}
 	}
 }
+.mega-sub-menu-column {
+	.stop-gray-card {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}
