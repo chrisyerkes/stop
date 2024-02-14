@@ -1,0 +1,21 @@
+.card {
+	&.stop-gray-card {
+		@include padding(45px 55px);
+		border: none;
+		@include border-radius(25px);
+		background: linear-gradient(120deg, $color-4 0%, rgba($color-4, .25) 100%);
+
+		.card-title {
+			@include font-size(24px);
+			color: $color-2;
+			font-family: $alt-sans;
+			font-weight: $medium;
+		}
+		.card-text {
+			@include font-size(15px);
+			line-height: 140%;
+			font-weight: $light;
+			@include margin-bottom(25px);
+		}
+	}
+}

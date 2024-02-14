@@ -67,6 +67,10 @@
 							&:first-child {
 								border-right: 1px solid #000;
 								@include padding-right(100px);
+								min-width: 308px;
+							}
+							&:last-child {
+								@include padding-left(100px);
 							}
 							& > .sub-menu {			
 								.nav-item {
