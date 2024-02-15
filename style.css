@@ -10418,8 +10418,27 @@ target those elements. */
   }
 }
 .btn.btn-primary {
-  background: linear-gradient(267.53deg, #EA5555 0%, #CE2C21 100%);
+  background-color: #CE2C21;
   border-radius: 5px;
+  position: relative;
+  z-index: 1;
+}
+.btn.btn-primary::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(267.53deg, #EA5555 0%, #CE2C21 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.btn.btn-primary:hover {
+  background: none;
+  color: #CE2C21;
+}
+.btn.btn-primary:hover::before {
+  opacity: 0;
 }
 .btn.btn-primary.arrow-right::after {
   content: "";
@@ -10431,6 +10450,11 @@ target those elements. */
   background-repeat: no-repeat;
   width: 12px;
   height: 12px;
+  -webkit-transition: 0.25s background-image;
+  transition: 0.25s background-image;
+}
+.btn.btn-primary.arrow-right:hover::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23CE2C21'/%3E%3C/svg%3E%0A");
 }
 
 .main-nav .nav-item .nav-link {
@@ -10462,13 +10486,25 @@ target those elements. */
 .main-nav .navbar-nav > .nav-item > .nav-link {
   position: relative;
 }
-.main-nav .navbar-nav > .nav-item > .nav-link::before {
+.main-nav .navbar-nav > .nav-item:has(> ul) > .nav-link {
+  z-index: 10;
+}
+.main-nav .navbar-nav > .nav-item:has(> ul) > .nav-link::before {
+  display: none;
   content: "";
-  width: 100%;
+  width: 300%;
   height: 100%;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.main-nav .navbar-nav > .nav-item:has(> ul) > .nav-link:hover {
+  z-index: 100;
+}
+.main-nav .navbar-nav > .nav-item:hover > .nav-link::before {
+  display: block;
 }
 .main-nav .navbar-nav > .nav-item > .sub-menu, .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper {
   padding: calc(1.375rem + 1.5vw) calc(1.3125rem + 0.75vw);
@@ -10582,38 +10618,53 @@ target those elements. */
   display: block;
 }
 
-.card.stop-gray-card {
+.card.stop-gray-card, .card.stop-white-card {
   padding: calc(1.40625rem + 1.875vw) calc(1.46875rem + 2.625vw);
   border: none;
   border-radius: 25px;
   background: linear-gradient(120deg, #E7E9EE 0%, rgba(231, 233, 238, 0.25) 100%);
 }
 @media (min-width: 1200px) {
-  .card.stop-gray-card {
+  .card.stop-gray-card, .card.stop-white-card {
     padding: 2.8125rem 3.4375rem;
   }
 }
-.card.stop-gray-card .card-title {
+.card.stop-gray-card .card-title, .card.stop-white-card .card-title {
   font-size: calc(1.275rem + 0.3vw);
   color: #474F65;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
 }
 @media (min-width: 1200px) {
-  .card.stop-gray-card .card-title {
+  .card.stop-gray-card .card-title, .card.stop-white-card .card-title {
     font-size: 1.5rem;
   }
 }
-.card.stop-gray-card .card-text {
+.card.stop-gray-card .card-text, .card.stop-white-card .card-text {
   font-size: 0.9375rem;
   line-height: 140%;
   font-weight: 300;
   margin-bottom: calc(1.28125rem + 0.375vw);
 }
 @media (min-width: 1200px) {
-  .card.stop-gray-card .card-text {
+  .card.stop-gray-card .card-text, .card.stop-white-card .card-text {
     margin-bottom: 1.5625rem;
   }
+}
+.card.stop-white-card {
+  background: #fff;
+  padding-left: 0;
+  padding-right: 0;
+}
+.card.stop-white-card img {
+  max-width: 344px;
+}
+.card.stop-white-card .card-title {
+  font-size: 1rem;
+}
+.card.stop-white-card .card-text {
+  font-style: italic;
+  font-size: 0.875rem;
 }
 
 /* A state is something that augments 
@@ -10653,10 +10704,12 @@ module class. */
   margin-top: 12px;
 }
 
-.mega-sub-menu-column .stop-gray-card {
+.mega-sub-menu-column .stop-gray-card,
+.mega-sub-menu-column .stop-white-card {
   display: none;
 }
-.mega-sub-menu-column .stop-gray-card.active {
+.mega-sub-menu-column .stop-gray-card.active,
+.mega-sub-menu-column .stop-white-card.active {
   display: block;
 }
 /*# sourceMappingURL=style.css.map */

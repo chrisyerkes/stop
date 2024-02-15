@@ -32,14 +32,30 @@
 			// Hover-safe area for top level links
 			& > .nav-link {
 				position: relative;
+			}
+			&:has(> ul) {
+				& > .nav-link {
+					z-index: 10;
 
-				&::before {
-					content: '';
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					top: 100%;
-					left: 0;
+					&::before {
+						display: none;
+						content: '';
+						width: 300%;
+						height: 100%;
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+					&:hover {
+						z-index: 100;
+					}
+				}
+			}
+			// Ensuring only actively hovered main nav item displays hover-safe area for easier mouse transition to mega menu content
+			&:hover {
+				& > .nav-link::before {
+					display: block;
 				}
 			}
 			// Mega Menu Column and Sub-Navigation Styles contained within top level links

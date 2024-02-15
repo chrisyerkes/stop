@@ -1,5 +1,6 @@
 .card {
-	&.stop-gray-card {
+	&.stop-gray-card,
+	&.stop-white-card {
 		@include padding(45px 55px);
 		border: none;
 		@include border-radius(25px);
@@ -16,6 +17,22 @@
 			line-height: 140%;
 			font-weight: $light;
 			@include margin-bottom(25px);
+		}
+	}
+	&.stop-white-card {
+		background: #fff;
+		padding-left: 0;
+		padding-right: 0;
+
+		img {
+			max-width: 344px;
+		}
+		.card-title {
+			@include font-size(16px);
+		}
+		.card-text {
+			font-style: italic;
+			@include font-size(14px);
 		}
 	}
 }
