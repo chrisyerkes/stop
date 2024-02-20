@@ -80,7 +80,8 @@
 			}
 		}
 	}
-	&.btn-white-outline {
+	&.btn-white-outline,
+	&.btn-secondary-outline {
 		border: 1px solid #fff;
 		border-radius: 3px;
 
@@ -92,6 +93,7 @@
 			position: absolute;
 			left: 0;
 			top: 0;
+			border-radius: 3px;
 			z-index: -1;
 			opacity: 0;
 		}
@@ -114,10 +116,40 @@
 			border-color: transparent;
 			
 			&::before {
-				border-radius: 3px;
-			}
-			&::before {
 				opacity: 1;
+			}
+		}
+	}
+	&.btn-secondary-outline {
+		border-color: $color-3;
+		color: $color-3;
+		@include font-size(14px);
+		line-height: 150%;
+		font-family: $primary-sans;
+		@include padding(10px 45px 10px 25px);
+		border-radius: 5px;
+
+		&:hover {
+			background-color: $color-3;
+			color: #fff;
+		}
+		&.arrow-right {
+			&::after {
+				content: '';
+				position: absolute;
+				right: 25px;
+				top: 15px;
+				background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23#{$color-3-svg}'/%3E%3C/svg%3E%0A");
+				background-size: contain;
+				background-repeat: no-repeat;
+				width: 11px;
+				height: 11px;
+				transition: 0.25s background-image;
+			}
+			&:hover {
+				&::after {
+					background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23ffffff'/%3E%3C/svg%3E%0A");
+				}
 			}
 		}
 	}

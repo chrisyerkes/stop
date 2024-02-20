@@ -10299,9 +10299,10 @@ body {
 }
 
 a {
-  color: #B1BBD3;
+  color: #374C80;
   -webkit-transition: 0.25s all;
   transition: 0.25s all;
+  text-decoration: none;
 }
 a::before {
   -webkit-transition: 0.25s all;
@@ -10456,11 +10457,11 @@ target those elements. */
 .btn.btn-primary.arrow-right:hover::after {
   background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23CE2C21'/%3E%3C/svg%3E%0A");
 }
-.btn.btn-white-outline {
+.btn.btn-white-outline, .btn.btn-secondary-outline {
   border: 1px solid #fff;
   border-radius: 3px;
 }
-.btn.btn-white-outline::before {
+.btn.btn-white-outline::before, .btn.btn-secondary-outline::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -10468,10 +10469,11 @@ target those elements. */
   position: absolute;
   left: 0;
   top: 0;
+  border-radius: 3px;
   z-index: -1;
   opacity: 0;
 }
-.btn.btn-white-outline.arrow-right::after {
+.btn.btn-white-outline.arrow-right::after, .btn.btn-secondary-outline.arrow-right::after {
   content: "";
   position: absolute;
   right: 18px;
@@ -10484,15 +10486,46 @@ target those elements. */
   -webkit-transition: 0.25s background-image;
   transition: 0.25s background-image;
 }
-.btn.btn-white-outline:hover {
+.btn.btn-white-outline:hover, .btn.btn-secondary-outline:hover {
   border-color: #CE2C21;
   border-color: transparent;
 }
-.btn.btn-white-outline:hover::before {
-  border-radius: 3px;
-}
-.btn.btn-white-outline:hover::before {
+.btn.btn-white-outline:hover::before, .btn.btn-secondary-outline:hover::before {
   opacity: 1;
+}
+.btn.btn-secondary-outline {
+  border-color: #838DA7;
+  color: #838DA7;
+  font-size: 0.875rem;
+  line-height: 150%;
+  font-family: "Roboto", sans-serif;
+  padding: 0.625rem calc(1.40625rem + 1.875vw) 0.625rem calc(1.28125rem + 0.375vw);
+  border-radius: 5px;
+}
+@media (min-width: 1200px) {
+  .btn.btn-secondary-outline {
+    padding: 0.625rem 2.8125rem 0.625rem 1.5625rem;
+  }
+}
+.btn.btn-secondary-outline:hover {
+  background-color: #838DA7;
+  color: #fff;
+}
+.btn.btn-secondary-outline.arrow-right::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23838DA7'/%3E%3C/svg%3E%0A");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 11px;
+  -webkit-transition: 0.25s background-image;
+  transition: 0.25s background-image;
+}
+.btn.btn-secondary-outline.arrow-right:hover::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23ffffff'/%3E%3C/svg%3E%0A");
 }
 .btn.header-cart-btn {
   margin-left: 0.9375rem;
@@ -10935,6 +10968,136 @@ target those elements. */
   -o-object-position: center center;
      object-position: center center;
   z-index: 0;
+}
+
+.content-section.four-points {
+  background-color: #E7E9EE;
+  padding-top: calc(2.0625rem + 9.75vw);
+  padding-bottom: calc(2.0625rem + 9.75vw);
+}
+@media (min-width: 1200px) {
+  .content-section.four-points {
+    padding-top: 9.375rem;
+  }
+}
+@media (min-width: 1200px) {
+  .content-section.four-points {
+    padding-bottom: 9.375rem;
+  }
+}
+
+.four-point-section {
+  position: relative;
+  padding-bottom: calc(1.5rem + 3vw);
+  margin-bottom: calc(1.5rem + 3vw);
+}
+@media (min-width: 1200px) {
+  .four-point-section {
+    padding-bottom: 3.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  .four-point-section {
+    margin-bottom: 3.75rem;
+  }
+}
+.four-point-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - 30px);
+  height: 1px;
+  background-color: #B1BBD3;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.four-point-section:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.four-point-section:last-child::after {
+  display: none;
+}
+.four-point-section [class^=col] > *:last-child, .four-point-section [class*=" col"] > *:last-child {
+  margin-bottom: 0;
+}
+.four-point-section .intro h3, .four-point-section .intro .h3 {
+  font-size: calc(1.3rem + 0.6vw);
+  font-weight: 700;
+  line-height: 100%;
+  margin-bottom: 0.9375rem;
+}
+@media (min-width: 1200px) {
+  .four-point-section .intro h3, .four-point-section .intro .h3 {
+    font-size: 1.75rem;
+  }
+}
+.four-point-section .intro p {
+  font-size: calc(1.2625rem + 0.15vw);
+  line-height: 135%;
+}
+@media (min-width: 1200px) {
+  .four-point-section .intro p {
+    font-size: 1.375rem;
+  }
+}
+.four-point-section.supporting-graphic-left .supporting-content {
+  padding-left: calc(1.54375rem + 3.525vw);
+}
+@media (min-width: 1200px) {
+  .four-point-section.supporting-graphic-left .supporting-content {
+    padding-left: 4.1875rem;
+  }
+}
+.four-point-section.supporting-graphic-right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.four-point-section.supporting-graphic-right .supporting-content {
+  padding-right: calc(1.54375rem + 3.525vw);
+}
+@media (min-width: 1200px) {
+  .four-point-section.supporting-graphic-right .supporting-content {
+    padding-right: 4.1875rem;
+  }
+}
+.four-point-section .supporting-content .section-title {
+  font-size: 0.75rem;
+  line-height: 105%;
+  letter-spacing: 0.04em;
+  color: #838DA7;
+  text-transform: uppercase;
+}
+.four-point-section .supporting-content h3, .four-point-section .supporting-content .h3 {
+  color: #CE2C21;
+  font-size: calc(1.4375rem + 2.25vw);
+  font-weight: 700;
+  line-height: 105%;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 1200px) {
+  .four-point-section .supporting-content h3, .four-point-section .supporting-content .h3 {
+    font-size: 3.125rem;
+  }
+}
+.four-point-section .supporting-content h4, .four-point-section .supporting-content .h4 {
+  font-size: calc(1.3rem + 0.6vw);
+  font-weight: 700;
+  color: #474F65;
+  line-height: 105%;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 1200px) {
+  .four-point-section .supporting-content h4, .four-point-section .supporting-content .h4 {
+    font-size: 1.75rem;
+  }
+}
+.four-point-section .supporting-content p {
+  margin-bottom: 1.25rem;
 }
 
 /* A state is something that augments 
