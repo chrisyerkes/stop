@@ -1,0 +1,180 @@
+.protection-options {
+	background: linear-gradient(265deg, $color-5 0%, $color-3 100%);
+	@include padding(120px 0);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.protection-options-text-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		& > * {
+			width: 100%;
+		}
+		h3 {
+			color: #000;
+			@include font-size(28px);
+			font-style: normal;
+			font-weight: $bold;
+			line-height: 100%;
+			@include margin-bottom(23px);
+		}
+		p {
+			color: #FFF;
+			@include font-size(20px);
+			font-style: normal;
+			font-weight: $bold;
+			line-height: 145%;
+		}
+		.options-selector {
+			@include margin-top(50px);
+			border-radius: 15px;
+			border: 1px solid #FFF;
+			@include padding(41px 33px 28px);
+			display: flex;
+			justify-content: space-between;
+
+			.hardware,
+			.software {
+				display: flex;
+				flex-direction: column;
+				gap: 19px;
+
+				small {
+					color: $color-2;
+					@include font-size(12px);
+					font-style: normal;
+					font-weight: $medium;
+					line-height: 120%;
+					letter-spacing: 0.48px;
+					text-transform: uppercase;
+				}
+			}
+			.option-list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				gap: 24.5px;
+
+				li {
+					display: flex;
+					flex-direction: column;
+					position: relative;
+
+					.stretch-link {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						z-index: 100;
+					}
+					.hardware-image,
+					.software-image {
+						@include margin-bottom(20px);
+
+						img {
+							width: 100%;
+						}
+					}
+					h5 {
+						color: #FFF;
+						@include font-size(20px);
+						font-style: normal;
+						font-weight: $demi;
+						line-height: 120%;
+						@include margin-bottom(20px);
+					}
+					p {
+						color: #FFF;
+						@include font-size(14px);
+						font-weight: $light;
+						line-height: 120%;
+					}
+					&:hover {
+						.hardware-image,
+						.software-image {
+							position: relative;
+
+							&::before {
+								content: 'Read more';
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								position: absolute;
+								top: 0;
+								left: 0;
+								border-radius: 100%;
+								width: 100%;
+								height: 100%;
+								color: #fff;
+								@include font-size(14px);
+								background: rgba($color-1, 0.85);
+							}
+						}
+					}
+				}
+			}
+			.hardware {
+				position: relative;
+
+				&::before,
+				&::after {
+					content: '';
+					background-color: #fff;
+					position: absolute;
+				}
+				&::before {
+					width: 1px;
+					height: 300px;
+					right: 80px;
+					top: 0;
+				}
+				&::after {
+					width: 29px;
+					height: 29px;
+					border-radius: 100%;
+					top: 110px;
+					right: 65px;
+				}
+				.option-list {
+					li {
+						width: 162px;
+					}
+				}
+			}
+			.software {
+				position: relative;
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+					background-color: $color-1;
+					z-index: 120;
+				}
+				&::before {
+					width: 1px;
+					height: 13px;
+					top: 118px;
+					left: -80px;
+				}
+				&::after {
+					width: 13px;
+					height: 1px;
+					top: 124px;
+					left: -86px;
+				}
+				.option-list {
+					li {
+						width: 162px;
+					}
+				}
+			}
+		}
+	}
+}

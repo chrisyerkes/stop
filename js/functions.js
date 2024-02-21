@@ -55,6 +55,18 @@ document.addEventListener('DOMContentLoaded', function () {
 			// Update the originalActiveCard reference to the new active card
 			// originalActiveCard = document.querySelector('.card.active');
 		});
+		link.addEventListener('mouseleave', function () {
+			// Remove 'active' class from any currently active card
+			const currentActiveCard = document.querySelector('.card.active');
+			if (currentActiveCard) {
+				currentActiveCard.classList.remove('active');
+			}
+
+			// Restore the 'active' class to the original active card
+			if (originalActiveCard) {
+				originalActiveCard.classList.add('active');
+			}
+		});
 	});
 
 	// Mouseleave event to restore the original '.active' card when hovering off the nav
@@ -70,4 +82,18 @@ document.addEventListener('DOMContentLoaded', function () {
 			originalActiveCard.classList.add('active');
 		}
 	});
+
+	const recoverySplide = new Splide('.recovery-story-slider', {
+		perPage: 4,
+		perMove: 1,
+		pagination: false,
+	});
+	const clientSplide = new Splide('.client-slider', {
+		// perPage: 6,
+		perMove: 1,
+		pagination: false,
+		autoWidth: true,
+	});
+	recoverySplide.mount();
+	clientSplide.mount();
 });

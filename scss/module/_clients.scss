@@ -1,0 +1,19 @@
+.clients {
+	@include padding-top(120px);
+	@include padding-bottom(120px);
+	background: linear-gradient(265deg, $color-7 0%, $color-1 100%);
+
+	.intro {
+		h2 {
+			color: #fff;
+			@include font-size(26px);
+		}
+	}
+	.client-slider {
+		.client-logo {
+			img {
+				mix-blend-mode: multiply;
+			}
+		}
+	}
+}

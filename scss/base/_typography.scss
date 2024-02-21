@@ -39,3 +39,9 @@ a {
 		}
 	}
 }
+
+h2 {
+	@include font-size(28px);
+	line-height: 100%;
+	font-weight: $bold;
+}

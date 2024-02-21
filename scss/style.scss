@@ -80,6 +80,9 @@ $theme-colors: (
 
 // 8. Add additional custom code here
 
+// Splide Slider
+@import "../node_modules/@splidejs/splide/src/css/core/index.scss";
+
 // Add additional custom code here
 @import "base/_base-index";
 @import "layout/_layout-index";
