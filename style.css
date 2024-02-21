@@ -10752,6 +10752,15 @@ target those elements. */
   padding-left: 0;
   padding-right: 0;
 }
+.card.stop-white-card > .row > .col-md-5:first-child {
+  min-height: 328px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .card.stop-white-card .card-title {
   font-size: 1rem;
 }

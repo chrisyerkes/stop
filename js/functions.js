@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Select all links with a 'data-link' attribute
 	const cardLinks = document.querySelectorAll('a[data-link]');
+	const navContainer = document.querySelector('#navbarNav'); // Ensure this selector matches your nav container
+	let originalActiveCard = document.querySelector('.card.active'); // Store the original active card
 
 	cardLinks.forEach((link) => {
 		link.addEventListener('mouseover', function () {
@@ -49,6 +51,23 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (targetCard) {
 				targetCard.classList.add('active');
 			}
+
+			// Update the originalActiveCard reference to the new active card
+			// originalActiveCard = document.querySelector('.card.active');
 		});
+	});
+
+	// Mouseleave event to restore the original '.active' card when hovering off the nav
+	navContainer.addEventListener('mouseleave', function () {
+		// Remove 'active' class from any currently active card
+		const currentActiveCard = document.querySelector('.card.active');
+		if (currentActiveCard) {
+			currentActiveCard.classList.remove('active');
+		}
+
+		// Restore the 'active' class to the original active card
+		if (originalActiveCard) {
+			originalActiveCard.classList.add('active');
+		}
 	});
 });
