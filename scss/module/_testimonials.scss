@@ -1,0 +1,70 @@
+.client-quotes {
+	@include padding-top(120px);
+	@include padding-bottom(120px);
+
+	.btn-text {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		font-family: $primary-sans;
+		@include font-size(14px);
+		z-index: 110;
+
+		&.arrow-right {
+			&::after {
+				top: 16px;
+				transition: 0.25s background-image;
+			}
+		}
+	}
+	.client-quotes-slider-wrapper {
+		position: relative;
+	}
+	.client-quote-slider {
+		.splide__arrows {
+			position: absolute;
+			bottom: 0;
+			left: -6px;
+			width: 100%;
+			z-index: 100;
+
+			svg {
+				display: none;
+			}
+			.splide__arrow {
+				border: none;
+				background-color: transparent;
+
+				&::before {
+					content: '';
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' fill='none'%3E%3Cpath fill='%239AA6C5' d='M0 8.508c0 4.437 3.563 8 8 8 4.406 0 8-3.563 8-8 0-4.406-3.594-8-8-8-4.438 0-8 3.594-8 8Zm10.781.531-3.25 3.25L7 12.82l-1.063-1.062.532-.531 2.718-2.72L6.47 5.79l-.532-.531L7 4.227l.531.53 3.25 3.22.531.53-.53.532Z'/%3E%3C/svg%3E");
+					background-size: contain;
+					background-repeat: no-repeat;
+					width: 15px;
+					height: 15px;
+					display: block;
+				}
+				&.splide__arrow--prev {
+					transform: rotate(180deg);
+				}
+			}
+		}
+		.client-testimonial {
+			.client-quote {
+				p {
+					@include font-size(25px);
+					line-height: 150%;
+				}
+			}
+			.client-name {
+				@include margin-bottom(45px);
+
+				p {
+					@include font-size(12px);
+					line-height: 145%;
+					color: $color-7;
+				}
+			}
+		}
+	}
+}

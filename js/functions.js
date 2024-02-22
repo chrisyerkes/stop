@@ -95,6 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		autoWidth: true,
 		type: 'loop',
 	});
+	const quoteSlider = new Splide('.client-quote-slider', {
+		perPage: 1,
+		perMove: 1,
+		pagination: false,
+		type: 'loop',
+	});
 	recoverySplide.mount();
 	clientSplide.mount();
+	quoteSlider.mount();
 });
