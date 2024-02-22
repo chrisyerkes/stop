@@ -11813,7 +11813,7 @@ target those elements. */
 .client-quotes .client-quote-slider .splide__arrows {
   position: absolute;
   bottom: 0;
-  left: -6px;
+  left: -1px;
   width: 100%;
   z-index: 100;
 }
@@ -11837,6 +11837,10 @@ target those elements. */
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
+.client-quotes .client-quote-slider .client-testimonial .client-quote {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .client-quotes .client-quote-slider .client-testimonial .client-quote p {
   font-size: calc(1.28125rem + 0.375vw);
   line-height: 150%;
@@ -11848,6 +11852,7 @@ target those elements. */
 }
 .client-quotes .client-quote-slider .client-testimonial .client-name {
   margin-bottom: calc(1.40625rem + 1.875vw);
+  padding-left: 5px;
 }
 @media (min-width: 1200px) {
   .client-quotes .client-quote-slider .client-testimonial .client-name {

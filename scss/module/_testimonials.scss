@@ -24,7 +24,7 @@
 		.splide__arrows {
 			position: absolute;
 			bottom: 0;
-			left: -6px;
+			left: -1px;
 			width: 100%;
 			z-index: 100;
 
@@ -51,6 +51,9 @@
 		}
 		.client-testimonial {
 			.client-quote {
+				padding-left: 5px;
+				padding-right: 5px;
+
 				p {
 					@include font-size(25px);
 					line-height: 150%;
@@ -58,6 +61,7 @@
 			}
 			.client-name {
 				@include margin-bottom(45px);
+				padding-left: 5px;
 
 				p {
 					@include font-size(12px);
