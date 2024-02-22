@@ -10601,6 +10601,18 @@ target those elements. */
 .btn.btn-text:hover.arrow-right::after {
   background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23CE2C21'/%3E%3C/svg%3E%0A");
 }
+.btn.btn-text.btn-text-white {
+  color: #fff;
+  opacity: 0.6;
+  -webkit-transition: 0.25s opacity;
+  transition: 0.25s opacity;
+}
+.btn.btn-text.btn-text-white.arrow-right::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");
+}
+.btn.btn-text.btn-text-white:hover {
+  opacity: 1;
+}
 .btn.btn-primary {
   background-color: #CE2C21;
   border-radius: 5px;
@@ -11657,17 +11669,114 @@ target those elements. */
     padding-bottom: 7.5rem;
   }
 }
+.clients .intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .clients .intro {
+    margin-bottom: 1.875rem;
+  }
+}
 .clients .intro h2, .clients .intro .h2 {
   color: #fff;
   font-size: calc(1.2875rem + 0.45vw);
+  margin: 0;
 }
 @media (min-width: 1200px) {
   .clients .intro h2, .clients .intro .h2 {
     font-size: 1.625rem;
   }
 }
-.clients .client-slider .client-logo img {
-  mix-blend-mode: multiply;
+.clients .intro .btn-text-white {
+  font-size: 0.875rem;
+}
+.clients .intro .btn-text-white::after {
+  top: 15px;
+}
+.clients .client-slider {
+  padding-left: calc(1.375rem + 1.5vw);
+  padding-right: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  .clients .client-slider {
+    padding-left: 2.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .clients .client-slider {
+    padding-right: 2.5rem;
+  }
+}
+.clients .client-slider .splide__arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 100;
+}
+.clients .client-slider .splide__arrows svg {
+  display: none;
+}
+.clients .client-slider .splide__arrows .splide__arrow {
+  border: none;
+  background-color: transparent;
+  opacity: 0.6;
+  -webkit-transition: 0.25s opacity;
+  transition: 0.25s opacity;
+}
+.clients .client-slider .splide__arrows .splide__arrow::before {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' fill='none'%3E%3Cpath fill='%23fff' d='M16 8.508c0 2.875-1.531 5.5-4 6.937-2.5 1.438-5.531 1.438-8 0a7.953 7.953 0 0 1-4-6.937 7.94 7.94 0 0 1 4-6.906c2.469-1.438 5.5-1.438 8 0 2.469 1.437 4 4.062 4 6.906ZM5.219 7.977l-.532.53.532.532 3.25 3.25.531.531 1.031-1.062-.531-.531-2.719-2.72L9.5 5.79l.531-.531L9 4.195l-.531.532-3.25 3.25Z'/%3E%3C/svg%3E");
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+}
+.clients .client-slider .splide__arrows .splide__arrow:hover {
+  opacity: 1;
+}
+.clients .client-slider .splide__arrows .splide__arrow.splide__arrow--next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.clients .client-slider .client-logo {
+  padding-right: calc(1.2875rem + 0.45vw);
+  padding-left: calc(1.2875rem + 0.45vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+@media (min-width: 1200px) {
+  .clients .client-slider .client-logo {
+    padding-right: 1.625rem;
+  }
+}
+@media (min-width: 1200px) {
+  .clients .client-slider .client-logo {
+    padding-left: 1.625rem;
+  }
 }
 
 /* A state is something that augments 

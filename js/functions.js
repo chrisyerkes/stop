@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		perMove: 1,
 		pagination: false,
 		autoWidth: true,
+		type: 'loop',
 	});
 	recoverySplide.mount();
 	clientSplide.mount();
