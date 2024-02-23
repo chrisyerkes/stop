@@ -10542,6 +10542,10 @@ where appropriate. */
   max-width: 220px;
 }
 
+#MainFooter {
+  background: linear-gradient(86.61deg, #E7E9EE 0%, rgba(231, 233, 238, 0) 100%);
+}
+
 /* As briefly mentioned in the previous 
 section, a Module is a more discrete 
 component of the page. It is your 
@@ -10654,6 +10658,7 @@ target those elements. */
 }
 .btn.btn-white-outline, .btn.btn-secondary-outline {
   border: 1px solid #fff;
+  color: #fff;
   border-radius: 3px;
 }
 .btn.btn-white-outline::before, .btn.btn-secondary-outline::before {
@@ -10694,17 +10699,25 @@ target those elements. */
   font-size: 0.875rem;
   line-height: 150%;
   font-family: "Roboto", sans-serif;
-  padding: 0.625rem calc(1.40625rem + 1.875vw) 0.625rem calc(1.28125rem + 0.375vw);
   border-radius: 5px;
+  padding: 0.625rem calc(1.28125rem + 0.375vw);
 }
 @media (min-width: 1200px) {
   .btn.btn-secondary-outline {
-    padding: 0.625rem 2.8125rem 0.625rem 1.5625rem;
+    padding: 0.625rem 1.5625rem;
   }
 }
 .btn.btn-secondary-outline:hover {
   background-color: #838DA7;
   color: #fff;
+}
+.btn.btn-secondary-outline.arrow-right {
+  padding: 0.625rem calc(1.40625rem + 1.875vw) 0.625rem calc(1.28125rem + 0.375vw);
+}
+@media (min-width: 1200px) {
+  .btn.btn-secondary-outline.arrow-right {
+    padding: 0.625rem 2.8125rem 0.625rem 1.5625rem;
+  }
 }
 .btn.btn-secondary-outline.arrow-right::after {
   content: "";
@@ -11087,7 +11100,7 @@ target those elements. */
   font-size: calc(1.2625rem + 0.15vw);
   line-height: 125%;
   letter-spacing: -0.01em;
-  font-weight: 700;
+  font-weight: 300;
   padding-right: calc(5.3125rem + 48.75vw);
 }
 @media (min-width: 1200px) {
@@ -11174,18 +11187,25 @@ target those elements. */
   z-index: 0;
 }
 
-.content-section.four-points {
+.content-section p {
+  font-weight: 300;
+}
+.content-section p strong {
+  font-weight: 700;
+}
+
+.four-points {
   background-color: #E7E9EE;
   padding-top: calc(2.0625rem + 9.75vw);
   padding-bottom: calc(2.0625rem + 9.75vw);
 }
 @media (min-width: 1200px) {
-  .content-section.four-points {
+  .four-points {
     padding-top: 9.375rem;
   }
 }
 @media (min-width: 1200px) {
-  .content-section.four-points {
+  .four-points {
     padding-bottom: 9.375rem;
   }
 }
@@ -11306,7 +11326,8 @@ target those elements. */
 
 .protection-options {
   background: linear-gradient(265deg, #B1BBD3 0%, #838DA7 100%);
-  padding: calc(1.875rem + 7.5vw) 0;
+  padding-top: calc(1.875rem + 7.5vw);
+  padding-bottom: calc(1.875rem + 7.5vw);
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11321,7 +11342,12 @@ target those elements. */
 }
 @media (min-width: 1200px) {
   .protection-options {
-    padding: 7.5rem 0;
+    padding-top: 7.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .protection-options {
+    padding-bottom: 7.5rem;
   }
 }
 .protection-options .protection-options-text-wrapper {
@@ -11361,7 +11387,6 @@ target those elements. */
   color: #FFF;
   font-size: 1.25rem;
   font-style: normal;
-  font-weight: 700;
   line-height: 145%;
 }
 .protection-options .protection-options-text-wrapper .options-selector {
@@ -11863,6 +11888,81 @@ target those elements. */
   font-size: 0.75rem;
   line-height: 145%;
   color: #EA5555;
+}
+
+.tracking-form {
+  padding-top: calc(1.375rem + 1.5vw);
+  padding-bottom: calc(1.375rem + 1.5vw);
+  background: linear-gradient(265deg, #B1BBD3 0%, #838DA7 100%);
+}
+@media (min-width: 1200px) {
+  .tracking-form {
+    padding-top: 2.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .tracking-form {
+    padding-bottom: 2.5rem;
+  }
+}
+.tracking-form h2, .tracking-form .h2 {
+  color: #fff;
+  margin-bottom: 0;
+  margin-right: calc(1.28125rem + 0.375vw);
+}
+@media (min-width: 1200px) {
+  .tracking-form h2, .tracking-form .h2 {
+    margin-right: 1.5625rem;
+  }
+}
+.tracking-form .form-control {
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background-color: #838DA7;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+.tracking-form .form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+.tracking-form .form-control::-moz-placeholder {
+  color: #fff;
+}
+.tracking-form .form-control:-ms-input-placeholder {
+  color: #fff;
+}
+.tracking-form .form-control::-ms-input-placeholder {
+  color: #fff;
+}
+.tracking-form .form-control::placeholder {
+  color: #fff;
+}
+.tracking-form .form-control:focus {
+  border-color: #E7E9EE;
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(231, 233, 238, 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(231, 233, 238, 0.25);
+}
+.tracking-form .btn-white-outline {
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  padding-top: 0.8125rem;
+  padding-bottom: 0.75rem;
+}
+.tracking-form .btn-white-outline.arrow-right::after {
+  top: 13px;
+  -webkit-transition: 0.25s background-image;
+  transition: 0.25s background-image;
+}
+.tracking-form .btn-white-outline:hover {
+  color: #838DA7;
+  background-color: #fff;
+}
+.tracking-form .btn-white-outline:hover.arrow-right::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5425 6.03906L6.79248 9.78906C6.65186 9.92969 6.46436 10 6.27686 10C6.06592 10 5.87842 9.92969 5.73779 9.78906C5.43311 9.50781 5.43311 9.01562 5.73779 8.73438L8.19873 6.25H1.02686C0.60498 6.25 0.276855 5.92188 0.276855 5.5C0.276855 5.10156 0.60498 4.75 1.02686 4.75H8.19873L5.73779 2.28906C5.43311 2.00781 5.43311 1.51562 5.73779 1.23438C6.01904 0.929688 6.51123 0.929688 6.79248 1.23438L10.5425 4.98438C10.8472 5.26562 10.8472 5.75781 10.5425 6.03906Z' fill='%23838DA7'/%3E%3C/svg%3E%0A");
 }
 
 /* A state is something that augments 

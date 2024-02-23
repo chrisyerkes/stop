@@ -1,3 +1,8 @@
+.four-points {
+	background-color: $color-4;
+	@include padding-top(150px);
+	@include padding-bottom(150px);
+}
 .four-point-section {
 	position: relative;
 	@include padding-bottom(60px);

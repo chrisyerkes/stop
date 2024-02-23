@@ -97,6 +97,7 @@
 	&.btn-white-outline,
 	&.btn-secondary-outline {
 		border: 1px solid #fff;
+		color: #fff;
 		border-radius: 3px;
 
 		&::before {
@@ -140,14 +141,16 @@
 		@include font-size(14px);
 		line-height: 150%;
 		font-family: $primary-sans;
-		@include padding(10px 45px 10px 25px);
 		border-radius: 5px;
+		@include padding(10px 25px);
 
 		&:hover {
 			background-color: $color-3;
 			color: #fff;
 		}
 		&.arrow-right {
+			@include padding(10px 45px 10px 25px);
+
 			&::after {
 				content: '';
 				position: absolute;

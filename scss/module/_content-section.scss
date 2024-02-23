@@ -1,7 +1,9 @@
 .content-section {
-	&.four-points {
-		background-color: $color-4;
-		@include padding-top(150px);
-		@include padding-bottom(150px);
+	p {
+		font-weight: $light;
+
+		strong {
+			font-weight: $bold;
+		}
 	}
 }

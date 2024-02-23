@@ -81,7 +81,7 @@
 				@include font-size(22px);
 				line-height: 125%;
 				letter-spacing: -0.01em;
-				font-weight: $bold;
+				font-weight: $light;
 				@include padding-right(670px);
 
 				&:last-of-type {

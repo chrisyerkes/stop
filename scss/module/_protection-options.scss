@@ -1,6 +1,7 @@
 .protection-options {
 	background: linear-gradient(265deg, $color-5 0%, $color-3 100%);
-	@include padding(120px 0);
+	@include padding-top(120px);
+	@include padding-bottom(120px);
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -26,7 +27,6 @@
 			color: #FFF;
 			@include font-size(20px);
 			font-style: normal;
-			font-weight: $bold;
 			line-height: 145%;
 		}
 		.options-selector {
