@@ -1,3 +1,5 @@
 #MainFooter {
 	background: linear-gradient(86.61deg, $color-4 0%, rgba($color-4, 0) 100%);
+	@include padding-top(50px);
+	@include padding-bottom(50px);
 }

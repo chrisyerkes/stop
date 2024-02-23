@@ -1,0 +1,41 @@
+.footer-nav {
+	.nav-item {
+		position: relative;
+
+		.expand-children {
+			width: 15px;
+			height: 15px;
+			display: block;
+			background-color: red;
+			right: 0;
+			top: 0;
+			position: absolute;
+		}
+		.nav-link {
+			@include font-size(14px);
+			line-height: 130%;
+			letter-spacing: 0.05em;
+			font-weight: $bold;
+			text-transform: uppercase;
+			color: $color-3;
+			@include padding-top(9px);
+			@include padding-bottom(9px);
+		}
+		.sub-menu {
+			display: none;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			.nav-item {
+				.nav-link {
+					text-transform: none;
+					letter-spacing: 0;
+					@include font-size(12px);
+					@include padding-top(2.5px);
+					@include padding-bottom (2.5px);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+.footer-col {
+	&:first-child {
+		@include padding-right(65px);
+	}
+	.footer-logo {
+		max-width: 132px;
+		display: block;
+		@include margin-bottom(30px);
+	}
+	address {
+		p {
+			@include font-size(13px);
+			line-height: 135%;
+			font-weight: $bold;
+
+			span {
+				@include font-size(18px);
+				font-family: $alt-sans;
+			}
+		}
+	}
+	p {
+		&.footnote {
+			@include font-size(10px);
+			line-height: 135%;
+			color: $footer-footnote;
+		}
+	}
+}

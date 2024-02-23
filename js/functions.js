@@ -83,6 +83,24 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	// Footer Nav Dropdowns
+	const footerNavItems = document.querySelectorAll(
+		'.footer-nav .nav-item > .sub-menu'
+	);
+	footerNavItems.forEach(function (navItem) {
+		navItem.parentNode.classList.add('has-child');
+
+		// add a span element to each nav-item that has the has-child class
+		const span = document.createElement('span');
+		span.classList.add('expand-children');
+		navItem.parentNode.prepend(span);
+
+		span.addEventListener('click', function () {
+			// span.classList.toggle('active');
+			navItem.parentNode.classList.toggle('active');
+		});
+	});
+
 	const recoverySplide = new Splide('.recovery-story-slider', {
 		perPage: 4,
 		perMove: 1,
