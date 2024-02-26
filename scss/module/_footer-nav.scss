@@ -1,4 +1,7 @@
 .footer-nav {
+	max-width: 175px;
+	width: 100%;
+
 	.nav-item {
 		position: relative;
 
@@ -6,10 +9,23 @@
 			width: 15px;
 			height: 15px;
 			display: block;
-			background-color: red;
-			right: 0;
-			top: 0;
+			right: 15px;
+			top: 9px;
 			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&::before {
+				content: '';
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='10' fill='none'%3E%3Cpath fill='%23838DA7' d='M5.128 4.524H8.71v1.278H5.128V9.51H3.832V5.802H.25V4.524h3.582V.798h1.296v3.726Z'/%3E%3C/svg%3E");
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: block;
+				width: 10px;
+				height: 10px;
+				pointer-events: none;
+			}
 		}
 		.nav-link {
 			@include font-size(14px);
@@ -20,6 +36,10 @@
 			color: $color-3;
 			@include padding-top(9px);
 			@include padding-bottom(9px);
+
+			&:hover {
+				color: $color-1;
+			}
 		}
 		.sub-menu {
 			display: none;
@@ -34,6 +54,20 @@
 					@include font-size(12px);
 					@include padding-top(2.5px);
 					@include padding-bottom (2.5px);
+				}
+			}
+		}
+		&.active {
+			.sub-menu {
+				display: block;
+			}
+			.expand-children {
+				top: 12px;
+
+				&::before {
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='2' fill='none'%3E%3Cpath fill='%23838DA7' d='M5.549.09H.45v1.23H5.55V.09Z'/%3E%3C/svg%3E");
+					width: 8px;
+					height: 8px;
 				}
 			}
 		}

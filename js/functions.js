@@ -87,17 +87,45 @@ document.addEventListener('DOMContentLoaded', function () {
 	const footerNavItems = document.querySelectorAll(
 		'.footer-nav .nav-item > .sub-menu'
 	);
-	footerNavItems.forEach(function (navItem) {
-		navItem.parentNode.classList.add('has-child');
 
-		// add a span element to each nav-item that has the has-child class
+	footerNavItems.forEach(function (navItem) {
+		let parent = navItem.parentNode,
+			link = parent.querySelector('.nav-link');
+		parent.classList.add('has-child');
+
+		// Add a span element to each nav-item that has the has-child class
 		const span = document.createElement('span');
 		span.classList.add('expand-children');
-		navItem.parentNode.prepend(span);
+		parent.prepend(span);
 
-		span.addEventListener('click', function () {
-			// span.classList.toggle('active');
-			navItem.parentNode.classList.toggle('active');
+		link.addEventListener('click', function (event) {
+			// Check if the link has been clicked once based on the presence of a class
+			const previouslyClicked = link.classList.contains('clicked-once');
+
+			// Remove active class from all other nav-items and reset their clicked state
+			document
+				.querySelectorAll('.footer-nav .nav-item')
+				.forEach(function (otherParent) {
+					if (otherParent !== parent) {
+						otherParent.classList.remove('active');
+						// Also remove the 'clicked-once' class from other links
+						let otherLink = otherParent.querySelector('.nav-link');
+						if (otherLink) {
+							otherLink.classList.remove('clicked-once');
+						}
+					}
+				});
+
+			if (!previouslyClicked) {
+				// First click
+				event.preventDefault();
+				parent.classList.toggle('active');
+				link.classList.add('clicked-once');
+			} else {
+				// On the second click, allow the default action and prepare for future clicks
+				// Remove 'clicked-once' class to reset state
+				link.classList.remove('clicked-once');
+			}
 		});
 	});
 

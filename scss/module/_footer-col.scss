@@ -26,4 +26,61 @@
 			color: $footer-footnote;
 		}
 	}
+	.hotline-title {
+		text-transform: uppercase;
+		font-weight: $bold;
+		color: $color-3;
+		@include font-size(14px);
+		letter-spacing: 0.05em;
+		@include margin-bottom(5px);
+	}
+	.hotline-number {
+		font-weight: $light;
+		@include font-size(29px);
+		color: $color-1;
+		@include margin-bottom(35px);
+	}
+	.account-controls {
+		@include margin-bottom(40px);
+		display: flex;
+		column-gap: 20px;
+
+		.btn-secondary-outline {
+			font-weight: $bold;
+			@include font-size(16px);
+			font-family: $alt-sans;
+
+			&:first-child {
+				@include padding-left(72px);
+				@include padding-right(72px);
+			}
+			&:last-child {
+				font-size: 0;
+				line-height: 0;
+				color: transparent;
+				@include padding-left(16px);
+				@include padding-right(16px);
+
+				&::after {
+					content: '';
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='17' fill='none'%3E%3Cpath fill='%23838DA7' d='M3.5.508c.344 0 .656.281.719.625l.062.375h13.125c.657 0 1.157.656.969 1.281l-1.688 6a.976.976 0 0 1-.968.719H5.813l.28 1.5h9.657a.76.76 0 0 1 .75.75.74.74 0 0 1-.75.75H5.469a.736.736 0 0 1-.719-.594L2.875 2.008H1.25a.722.722 0 0 1-.75-.75.74.74 0 0 1 .75-.75H3.5Zm11.844 7.5 1.406-5H4.594l.937 5h9.813Zm-10.844 7a1.5 1.5 0 0 1 1.5-1.5c.813 0 1.5.687 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5 1.48 1.48 0 0 1-1.5-1.5Zm12 0a1.5 1.5 0 0 1-1.5 1.5 1.48 1.48 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5c.813 0 1.5.687 1.5 1.5Z'/%3E%3C/svg%3E");
+					background-size: contain;
+					background-repeat: no-repeat;
+					width: 18px;
+					height: 16px;
+					display: block;
+					margin-left: -1px;
+					position: relative;
+					top: 4px;
+				}
+				&:hover {
+					&:last-child {
+						&::after {
+							background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='17' fill='none'%3E%3Cpath fill='%23FFFFFF' d='M3.5.508c.344 0 .656.281.719.625l.062.375h13.125c.657 0 1.157.656.969 1.281l-1.688 6a.976.976 0 0 1-.968.719H5.813l.28 1.5h9.657a.76.76 0 0 1 .75.75.74.74 0 0 1-.75.75H5.469a.736.736 0 0 1-.719-.594L2.875 2.008H1.25a.722.722 0 0 1-.75-.75.74.74 0 0 1 .75-.75H3.5Zm11.844 7.5 1.406-5H4.594l.937 5h9.813Zm-10.844 7a1.5 1.5 0 0 1 1.5-1.5c.813 0 1.5.687 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5 1.48 1.48 0 0 1-1.5-1.5Zm12 0a1.5 1.5 0 0 1-1.5 1.5 1.48 1.48 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5c.813 0 1.5.687 1.5 1.5Z'/%3E%3C/svg%3E");
+						}
+					}
+				}
+			}
+		}
+	}
 }
