@@ -1,3 +1,8 @@
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+	console.log('The device is touch-enabled.');
+	document.querySelector('html').classList.add('touch-enabled');
+}
+
 function addClassOnScroll() {
 	// Listen for the scroll event on the window
 	window.addEventListener('scroll', function () {
@@ -16,46 +21,141 @@ function addClassOnScroll() {
 addClassOnScroll();
 
 document.addEventListener('DOMContentLoaded', function () {
-	const navItems = document.querySelectorAll('.navbar-nav > .nav-item');
+	const html = document.querySelector('html');
+	const primaryNavItems = document.querySelectorAll(
+		'.navbar-nav > .nav-item'
+	);
+	const navItems = document.querySelectorAll('.nav-item');
 
-	navItems.forEach(function (navItem) {
-		navItem.addEventListener('mouseenter', function () {
-			const subMenu = navItem.querySelector(':scope > .sub-menu');
-			if (subMenu) {
-				const parentOffsetLeft = navItem.offsetLeft + 14;
-				subMenu.style.paddingLeft = `${parentOffsetLeft}px`;
+	if (html.classList.contains('touch-enabled') || window.innerWidth < 992) {
+		primaryNavItems.forEach(function (navItem) {
+			// Check if .nav-item contains either .sub-menu or .mega-sub-menu-wrapper as a child
+			if (
+				navItem.querySelector('.sub-menu') ||
+				navItem.querySelector('.mega-sub-menu-wrapper')
+			) {
+				navItem.classList.add('has-child');
+
+				// Create a new span element
+				const span = document.createElement('span');
+				span.className = 'expand-children';
+
+				// Prepend the span to the .nav-item
+				navItem.insertBefore(span, navItem.firstChild);
+
+				// Add click event listener to span
+				span.addEventListener('click', function (event) {
+					event.stopPropagation(); // Prevent the event from bubbling up to parent elements
+					const activeElements = document.querySelectorAll(
+						'.nav-item.active, .nav-item.clicked-once'
+					);
+					const hasActive = activeElements.length > 0;
+
+					if (hasActive) {
+						activeElements.forEach((element) => {
+							element.classList.remove('active', 'clicked-once');
+						});
+					} else {
+						const parentHasChild = this.closest('.has-child');
+						if (parentHasChild) {
+							parentHasChild.classList.add(
+								'active',
+								'clicked-once'
+							);
+						}
+					}
+				});
+
+				navItem.addEventListener('click', function (event) {
+					// Check if the link has been clicked once based on the presence of a class
+					const previouslyClicked =
+						navItem.classList.contains('clicked-once');
+
+					// Remove active class from all other nav-items and reset their clicked state
+					navItems.forEach(function (otherParent) {
+						if (otherParent !== parent) {
+							otherParent.classList.remove('active');
+							// Also remove the 'clicked-once' class from other links
+							let otherLink =
+								otherParent.querySelector('.nav-link');
+							if (otherLink) {
+								otherLink.classList.remove('clicked-once');
+							}
+						}
+					});
+
+					if (!previouslyClicked) {
+						// First click
+						event.preventDefault();
+						navItem.classList.toggle('active');
+						navItem.classList.add('clicked-once');
+					} else {
+						// On the second click, allow the default action and prepare for future clicks
+						// Remove 'clicked-once' class to reset state
+						navItem.classList.remove('clicked-once');
+					}
+				});
 			}
 		});
-	});
+	}
 
-	// Select all links with a 'data-link' attribute
-	const cardLinks = document.querySelectorAll('a[data-link]');
-	const navContainer = document.querySelector('#navbarNav'); // Ensure this selector matches your nav container
-	let originalActiveCard = document.querySelector('.card.active'); // Store the original active card
-
-	cardLinks.forEach((link) => {
-		link.addEventListener('mouseover', function () {
-			// Find the currently active '.card' and remove the 'active' class
-			const currentActiveCard = document.querySelector('.card.active');
-			if (currentActiveCard) {
-				currentActiveCard.classList.remove('active');
-			}
-
-			// Get the 'data-link' value of the hovered link
-			const targetId = this.getAttribute('data-link');
-
-			// Find the '.card' that corresponds to the 'data-nav-target' and add 'active' class
-			const targetCard = document.querySelector(
-				`.card[data-nav-target="${targetId}"]`
-			);
-			if (targetCard) {
-				targetCard.classList.add('active');
-			}
-
-			// Update the originalActiveCard reference to the new active card
-			// originalActiveCard = document.querySelector('.card.active');
+	// Desktop only behavior
+	if (window.innerWidth >= 992) {
+		primaryNavItems.forEach(function (navItem) {
+			navItem.addEventListener('mouseenter', function () {
+				const subMenu = navItem.querySelector(':scope > .sub-menu');
+				if (subMenu) {
+					const parentOffsetLeft = navItem.offsetLeft + 14;
+					subMenu.style.paddingLeft = `${parentOffsetLeft}px`;
+				}
+			});
 		});
-		link.addEventListener('mouseleave', function () {
+
+		// Select all links with a 'data-link' attribute
+		const cardLinks = document.querySelectorAll('a[data-link]');
+		const navContainer = document.querySelector('#navbarNav'); // Ensure this selector matches your nav container
+		let originalActiveCard = document.querySelector('.card.active'); // Store the original active card
+
+		cardLinks.forEach((link) => {
+			link.addEventListener('mouseover', function () {
+				// Find the currently active '.card' and remove the 'active' class
+				const currentActiveCard =
+					document.querySelector('.card.active');
+				if (currentActiveCard) {
+					currentActiveCard.classList.remove('active');
+				}
+
+				// Get the 'data-link' value of the hovered link
+				const targetId = this.getAttribute('data-link');
+
+				// Find the '.card' that corresponds to the 'data-nav-target' and add 'active' class
+				const targetCard = document.querySelector(
+					`.card[data-nav-target="${targetId}"]`
+				);
+				if (targetCard) {
+					targetCard.classList.add('active');
+				}
+
+				// Update the originalActiveCard reference to the new active card
+				// originalActiveCard = document.querySelector('.card.active');
+			});
+			link.addEventListener('mouseleave', function () {
+				// Remove 'active' class from any currently active card
+				const currentActiveCard =
+					document.querySelector('.card.active');
+				if (currentActiveCard) {
+					currentActiveCard.classList.remove('active');
+				}
+
+				// Restore the 'active' class to the original active card
+				if (originalActiveCard) {
+					originalActiveCard.classList.add('active');
+				}
+			});
+		});
+
+		// Mouseleave event to restore the original '.active' card when hovering off the nav
+		navContainer.addEventListener('mouseleave', function () {
 			// Remove 'active' class from any currently active card
 			const currentActiveCard = document.querySelector('.card.active');
 			if (currentActiveCard) {
@@ -67,21 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				originalActiveCard.classList.add('active');
 			}
 		});
-	});
-
-	// Mouseleave event to restore the original '.active' card when hovering off the nav
-	navContainer.addEventListener('mouseleave', function () {
-		// Remove 'active' class from any currently active card
-		const currentActiveCard = document.querySelector('.card.active');
-		if (currentActiveCard) {
-			currentActiveCard.classList.remove('active');
-		}
-
-		// Restore the 'active' class to the original active card
-		if (originalActiveCard) {
-			originalActiveCard.classList.add('active');
-		}
-	});
+	}
 
 	// Footer Nav Dropdowns
 	const footerNavItems = document.querySelectorAll(

@@ -21,14 +21,13 @@
 	}
 	&.stop-white-card {
 		background: #fff;
-		padding-left: 0;
-		padding-right: 0;
+		padding: 0;
 
 		// img {
 		// 	max-width: 344px;
 		// }
 		& > .row > .col-md-5:first-child {
-			min-height: 328px;
+			// min-height: 328px;
 			display: flex;
 			align-items: center;
 		}

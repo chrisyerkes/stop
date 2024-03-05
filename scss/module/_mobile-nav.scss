@@ -1,0 +1,96 @@
+@include media-breakpoint-down(lg) {
+	.main-nav .navbar-nav {
+		.nav-item {
+			position: relative;
+
+			.nav-link {
+				position: relative;
+				z-index: 50;
+			}
+		}
+		.btn.header-btn,
+		.btn.header-cart-btn {
+			margin-left: 0;
+			border-radius: 0;
+			border: none;
+			text-align: left;
+			@include font-size(26px !important);
+			@include padding-top(15px !important);
+			@include padding-bottom(15px !important);
+			font-weight: $light !important;
+			color: #fff !important;
+
+			&::before {
+				content: '';
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(267.53deg, $color-7 0%, $color-1 100%);
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: -1;
+			}
+	
+			&:hover {
+				color: #fff;
+		
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+		.btn.header-cart-btn {
+			display: flex;
+			align-items: center;
+			column-gap: 10px;
+
+			&::after {
+				content: 'Cart';
+			}
+			svg {
+				width: 23px;
+				height: 20px;
+
+				path {
+					fill: #fff;
+				}
+			}
+		}
+		& > .nav-item {
+			& > .nav-link {
+				border-bottom: 1px solid $color-4;
+				@include font-size(26px);
+				@include padding-top(15px);
+				@include padding-bottom(15px);
+			}
+			&:first-child {
+				& > .nav-link {
+					border-top: 1px solid $color-4;
+				}
+			}
+		}
+		.expand-children {
+			width: 57px;
+			height: 57px;
+			display: block;
+			right: 0;
+			top: 0;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 150;
+
+			&::before {
+				content: '';
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='10' fill='none'%3E%3Cpath fill='%23000000' d='M5.128 4.524H8.71v1.278H5.128V9.51H3.832V5.802H.25V4.524h3.582V.798h1.296v3.726Z'/%3E%3C/svg%3E");
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: block;
+				width: 13px;
+				height: 13px;
+				pointer-events: none;
+			}
+		}
+	}
+}

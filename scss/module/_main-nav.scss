@@ -72,6 +72,13 @@
 				.mega-menu-row {
 					& > ul.mega-sub-menu {
 						display: flex;
+
+						& > .mega-sub-menu-column {
+							&:last-child {
+								display: flex;
+								align-items: center;
+							}
+						}
 					}
 				}
 			}
@@ -178,14 +185,16 @@
 		}
 	}
 	// On Hover
-	.navbar-nav {
-		& > .nav-item {
-			&:hover {
-				.mega-sub-menu-wrapper,
-				.sub-menu {
-					&,
-					& > .nav-item {
-						display: block;
+	@include media-breakpoint-up(lg) {
+		.navbar-nav {
+			& > .nav-item {
+				&:hover {
+					.mega-sub-menu-wrapper,
+					.sub-menu {
+						&,
+						& > .nav-item {
+							display: block;
+						}
 					}
 				}
 			}
