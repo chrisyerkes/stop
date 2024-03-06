@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	const navItems = document.querySelectorAll('.nav-item');
 
 	if (html.classList.contains('touch-enabled') || window.innerWidth < 992) {
+		navItems.forEach(function (navItem) {
+			if (navItem.querySelector('.sub-menu')) {
+				navItem.classList.add('has-child');
+			}
+		});
 		primaryNavItems.forEach(function (navItem) {
 			// Check if .nav-item contains either .sub-menu or .mega-sub-menu-wrapper as a child
 			if (
@@ -46,23 +51,19 @@ document.addEventListener('DOMContentLoaded', function () {
 				// Add click event listener to span
 				span.addEventListener('click', function (event) {
 					event.stopPropagation(); // Prevent the event from bubbling up to parent elements
-					const activeElements = document.querySelectorAll(
-						'.nav-item.active, .nav-item.clicked-once'
-					);
-					const hasActive = activeElements.length > 0;
-
-					if (hasActive) {
-						activeElements.forEach((element) => {
-							element.classList.remove('active', 'clicked-once');
+					// Remove 'active' and 'clicked-once' classes from all .nav-item elements
+					document
+						.querySelectorAll(
+							'.nav-item.active, .nav-item.clicked-once'
+						)
+						.forEach(function (navItem) {
+							navItem.classList.remove('active', 'clicked-once');
 						});
-					} else {
-						const parentHasChild = this.closest('.has-child');
-						if (parentHasChild) {
-							parentHasChild.classList.add(
-								'active',
-								'clicked-once'
-							);
-						}
+
+					// Add 'active' and 'clicked-once' classes to the clicked span's parent .nav-item
+					const parentNavItem = this.closest('.nav-item');
+					if (parentNavItem) {
+						parentNavItem.classList.add('active', 'clicked-once');
 					}
 				});
 
@@ -70,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
 					// Check if the link has been clicked once based on the presence of a class
 					const previouslyClicked =
 						navItem.classList.contains('clicked-once');
+					const allOthers =
+						document.querySelectorAll('.clicked-once');
 
 					// Remove active class from all other nav-items and reset their clicked state
 					navItems.forEach(function (otherParent) {
@@ -87,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
 					if (!previouslyClicked) {
 						// First click
 						event.preventDefault();
+						allOthers.forEach(function (otherParent) {
+							otherParent.classList.remove('clicked-once');
+						});
 						navItem.classList.toggle('active');
 						navItem.classList.add('clicked-once');
 					} else {

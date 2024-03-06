@@ -63,13 +63,69 @@
 				@include padding-top(15px);
 				@include padding-bottom(15px);
 			}
+			&:hover {
+				& > .nav-link::before {
+					display: none;
+				}
+			}
+			&.active {
+				& > .nav-link {
+					color: $color-8;
+				}
+			}
 			&:first-child {
 				& > .nav-link {
 					border-top: 1px solid $color-4;
 				}
 			}
+			& > .mega-sub-menu-wrapper,
+			& > .sub-menu {
+				.nav-item {
+					margin-bottom: 0 !important;
+
+					.nav-link {
+						@include font-size(20px !important);
+						color: #000 !important;
+						font-weight: $regular !important;
+						@include padding-top(18.5px !important);
+						@include padding-bottom(18.5px !important);
+						border-bottom: 1px solid $color-5;
+						@include padding-left(16px !important);
+						@include padding-right(16px !important);
+					}
+					.sub-menu {
+						background-color: transparent;
+
+						.nav-item {
+							.nav-link {
+								font-weight: $light !important;
+								border: none !important;
+
+								&::before {
+									display: none;
+								}
+							}
+							&:last-child {
+								.nav-link {
+									border-bottom: 1px solid $color-5 !important;
+								}
+							}
+						}
+					}
+					&:last-child {
+						.sub-menu {
+							.nav-item:last-child {
+								.nav-link {
+									border: 0 !important;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		.expand-children {
+			cursor: pointer;
 			width: 57px;
 			height: 57px;
 			display: block;
@@ -80,6 +136,7 @@
 			align-items: center;
 			justify-content: center;
 			z-index: 150;
+			transition: 0.25s transform;
 
 			&::before {
 				content: '';
@@ -90,6 +147,59 @@
 				width: 13px;
 				height: 13px;
 				pointer-events: none;
+			}
+		}
+	}
+	.nav-item {
+		&.has-child {
+			&.active {
+				.expand-children {
+					transform: rotate(45deg);
+				}
+				.sub-menu,
+				.mega-sub-menu-wrapper {
+					display: block;
+					position: relative;
+					background-color: $color-4;
+					padding: 0;
+					margin: 0;
+					border: 0;
+				}
+				.sub-menu {
+					.nav-item {
+						display: block;
+
+						&:last-child:not(.has-child) {
+							.nav-link {
+								border: none !important;
+							}
+						}
+					}
+				}
+				.mega-sub-menu-wrapper {
+					.mega-menu-row {
+						padding-left: 0;
+						padding-right: 0;
+					}
+					.mega-sub-menu {
+						flex-direction: column;
+
+						& > .mega-sub-menu-column {
+							&:first-child {
+								border: 0 !important;
+								padding: 0 !important;
+							}
+							&:last-child {
+								display: none !important;
+							}
+							.sub-menu {
+								.nav-item {
+									display: block;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

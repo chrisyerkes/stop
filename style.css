@@ -11025,10 +11025,46 @@ target those elements. */
   }
 }
 @media (max-width: 991.98px) {
+  .main-nav .navbar-nav > .nav-item:hover > .nav-link::before {
+    display: none;
+  }
+  .main-nav .navbar-nav > .nav-item.active > .nav-link {
+    color: #2EA9A1;
+  }
   .main-nav .navbar-nav > .nav-item:first-child > .nav-link {
     border-top: 1px solid #E7E9EE;
   }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item {
+    margin-bottom: 0 !important;
+  }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item .nav-link, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .nav-link {
+    font-size: 1.25rem !important;
+    color: #000 !important;
+    font-weight: 400 !important;
+    padding-top: 1.15625rem !important;
+    padding-bottom: 1.15625rem !important;
+    border-bottom: 1px solid #B1BBD3;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item .sub-menu, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .sub-menu {
+    background-color: transparent;
+  }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item .sub-menu .nav-item .nav-link, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .sub-menu .nav-item .nav-link {
+    font-weight: 300 !important;
+    border: none !important;
+  }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item .sub-menu .nav-item .nav-link::before, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .sub-menu .nav-item .nav-link::before {
+    display: none;
+  }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item .sub-menu .nav-item:last-child .nav-link, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .sub-menu .nav-item:last-child .nav-link {
+    border-bottom: 1px solid #B1BBD3 !important;
+  }
+  .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .nav-item:last-child .sub-menu .nav-item:last-child .nav-link, .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item:last-child .sub-menu .nav-item:last-child .nav-link {
+    border: 0 !important;
+  }
   .main-nav .navbar-nav .expand-children {
+    cursor: pointer;
     width: 57px;
     height: 57px;
     display: block;
@@ -11045,6 +11081,10 @@ target those elements. */
         -ms-flex-pack: center;
             justify-content: center;
     z-index: 150;
+    -webkit-transition: 0.25s -webkit-transform;
+    transition: 0.25s -webkit-transform;
+    transition: 0.25s transform;
+    transition: 0.25s transform, 0.25s -webkit-transform;
   }
   .main-nav .navbar-nav .expand-children::before {
     content: "";
@@ -11055,6 +11095,45 @@ target those elements. */
     width: 13px;
     height: 13px;
     pointer-events: none;
+  }
+  .nav-item.has-child.active .expand-children {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .nav-item.has-child.active .sub-menu,
+  .nav-item.has-child.active .mega-sub-menu-wrapper {
+    display: block;
+    position: relative;
+    background-color: #E7E9EE;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  .nav-item.has-child.active .sub-menu .nav-item {
+    display: block;
+  }
+  .nav-item.has-child.active .sub-menu .nav-item:last-child:not(.has-child) .nav-link {
+    border: none !important;
+  }
+  .nav-item.has-child.active .mega-sub-menu-wrapper .mega-menu-row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .nav-item.has-child.active .mega-sub-menu-wrapper .mega-sub-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .nav-item.has-child.active .mega-sub-menu-wrapper .mega-sub-menu > .mega-sub-menu-column:first-child {
+    border: 0 !important;
+    padding: 0 !important;
+  }
+  .nav-item.has-child.active .mega-sub-menu-wrapper .mega-sub-menu > .mega-sub-menu-column:last-child {
+    display: none !important;
+  }
+  .nav-item.has-child.active .mega-sub-menu-wrapper .mega-sub-menu > .mega-sub-menu-column .sub-menu .nav-item {
+    display: block;
   }
 }
 .card.stop-gray-card, .card.stop-white-card {
