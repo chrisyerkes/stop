@@ -1,6 +1,6 @@
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
 	console.log('The device is touch-enabled.');
-	document.querySelector('html').classList.add('touch-enabled');
+	// document.querySelector('html').classList.add('touch-enabled');
 }
 
 function addClassOnScroll() {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	);
 	const navItems = document.querySelectorAll('.nav-item');
 
-	if (html.classList.contains('touch-enabled') || window.innerWidth < 992) {
+	/* if (html.classList.contains('touch-enabled') || window.innerWidth < 992) {
 		navItems.forEach(function (navItem) {
 			if (navItem.querySelector('.sub-menu')) {
 				navItem.classList.add('has-child');
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				});
 			}
 		});
-	}
+	} */
 
 	// Desktop only behavior
 	if (window.innerWidth >= 992) {

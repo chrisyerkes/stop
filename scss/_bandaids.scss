@@ -1,0 +1,124 @@
+$desktop: 1100px;
+
+#MainHeader {
+	max-width: 100% !important;
+	min-width: $desktop;
+}
+.container {
+	max-width: $desktop !important;
+}
+#MainHeader {
+	.expand-children,
+	.navbar-toggler {
+		display: none;
+	}
+	& > .main-nav {
+		& > .container {
+			flex-wrap: nowrap;
+		}
+	}
+	.navbar-collapse {
+		display: flex;
+		
+		.navbar-nav {
+			flex-direction: row;
+		}
+	}
+	.main-nav {
+		.navbar-nav {
+			// Nav Link Styles
+			& > .nav-item {
+				position: static;
+
+				& > .nav-link {
+					@include font-size(24px);
+					@include padding(5px 16px);
+					border: none !important;
+
+					&.header-btn {
+						@include margin-left(16px);
+						color: $color-1 !important;
+						border: 1px solid $color-1 !important;
+						@include font-size(16px !important);
+						font-weight: $regular !important;
+						@include border-radius(3px);
+						@include padding(10px 16px !important);
+
+						&::before {
+							display: none;
+						}
+						&:hover {
+							color: #fff !important;
+						}
+					}
+					&.header-cart-btn {
+						@include margin-left(15px);
+						@include padding(10px 12px !important);
+
+						&::before {
+							display: none;
+						}
+						&::after {
+							display: none;
+						}
+						svg {
+							width: 18px;
+							height: 16px;
+							
+							path {
+								fill: #000;
+							}
+						}
+						&:hover {
+							svg {
+								path {
+									fill: $color-1;
+								}
+							}
+						}
+					}
+				}
+				// Mega Menu Link Styling
+				& > .mega-sub-menu-wrapper {
+					.mega-menu-row {
+						.mega-sub-menu {
+							.mega-sub-menu-column {
+								& > .sub-menu {
+									& > .nav-item {
+										@include margin-bottom(20px !important);
+
+										&:last-child {
+											margin-bottom: 0 !important;
+										}
+										& > .nav-link {
+											font-weight: $medium !important;
+											@include font-size(24px !important);
+											@include padding(10px 0 !important);
+											color: $color-1 !important;
+
+											&:hover {
+												color: $color-8 !important;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			// Show/Hide Overrides
+			& > .nav-item {
+				&:hover {
+					.mega-sub-menu-wrapper,
+					.sub-menu {
+						&,
+						& > .nav-item {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
