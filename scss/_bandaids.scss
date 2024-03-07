@@ -35,6 +35,12 @@ $desktop: 1100px;
 					@include padding(5px 16px);
 					border: none !important;
 
+					&:hover {
+						&::before {
+							display: block;
+							height: calc(100% + 10px);
+						}
+					}
 					&.header-btn {
 						@include margin-left(16px);
 						color: $color-1 !important;
@@ -53,7 +59,7 @@ $desktop: 1100px;
 					}
 					&.header-cart-btn {
 						@include margin-left(15px);
-						@include padding(10px 12px !important);
+						@include padding(.375rem 12px !important);
 
 						&::before {
 							display: none;
@@ -78,6 +84,22 @@ $desktop: 1100px;
 						}
 					}
 				}
+				// Regular Sub Menu Styling
+				& > .sub-menu {
+					.nav-item {
+						.nav-link {
+							@include padding(12px 0 !important);
+							color: $color-1 !important;
+							@include font-size(24px !important);
+							font-weight: $light !important;
+							border: 0 !important;
+
+							&:hover {
+								color: $color-8 !important;
+							}
+						}
+					}
+				}
 				// Mega Menu Link Styling
 				& > .mega-sub-menu-wrapper {
 					.mega-menu-row {
@@ -95,9 +117,28 @@ $desktop: 1100px;
 											@include font-size(24px !important);
 											@include padding(10px 0 !important);
 											color: $color-1 !important;
+											border: 0 !important;
 
 											&:hover {
 												color: $color-8 !important;
+											}
+										}
+										.sub-menu {
+											background-color: #fff;
+
+											.nav-item {
+												.nav-link {
+													@include font-size(18px !important);
+													@include padding(10px 0 10px 20px !important);
+													border: 0 !important;
+
+													&::before {
+														display: block !important;
+													}
+													&:hover {
+														color: $color-8 !important;
+													}
+												}
 											}
 										}
 									}

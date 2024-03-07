@@ -12536,6 +12536,10 @@ module class. */
     font-size: 1.5rem;
   }
 }
+#MainHeader .main-nav .navbar-nav > .nav-item > .nav-link:hover::before {
+  display: block;
+  height: calc(100% + 10px);
+}
 #MainHeader .main-nav .navbar-nav > .nav-item > .nav-link.header-btn {
   margin-left: 1rem;
   color: #CE2C21 !important;
@@ -12553,7 +12557,7 @@ module class. */
 }
 #MainHeader .main-nav .navbar-nav > .nav-item > .nav-link.header-cart-btn {
   margin-left: 0.9375rem;
-  padding: 0.625rem 0.75rem !important;
+  padding: 0.375rem 0.75rem !important;
 }
 #MainHeader .main-nav .navbar-nav > .nav-item > .nav-link.header-cart-btn::before {
   display: none;
@@ -12571,6 +12575,21 @@ module class. */
 #MainHeader .main-nav .navbar-nav > .nav-item > .nav-link.header-cart-btn:hover svg path {
   fill: #CE2C21;
 }
+#MainHeader .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .nav-link {
+  padding: 0.75rem 0 !important;
+  color: #CE2C21 !important;
+  font-size: calc(1.275rem + 0.3vw) !important;
+  font-weight: 300 !important;
+  border: 0 !important;
+}
+@media (min-width: 1200px) {
+  #MainHeader .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .nav-link {
+    font-size: 1.5rem !important;
+  }
+}
+#MainHeader .main-nav .navbar-nav > .nav-item > .sub-menu .nav-item .nav-link:hover {
+  color: #2EA9A1 !important;
+}
 #MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item {
   margin-bottom: 1.25rem !important;
 }
@@ -12582,6 +12601,7 @@ module class. */
   font-size: calc(1.275rem + 0.3vw) !important;
   padding: 0.625rem 0 !important;
   color: #CE2C21 !important;
+  border: 0 !important;
 }
 @media (min-width: 1200px) {
   #MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item > .nav-link {
@@ -12589,6 +12609,20 @@ module class. */
   }
 }
 #MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item > .nav-link:hover {
+  color: #2EA9A1 !important;
+}
+#MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item .sub-menu {
+  background-color: #fff;
+}
+#MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item .sub-menu .nav-item .nav-link {
+  font-size: 1.125rem !important;
+  padding: 0.625rem 0 0.625rem 1.25rem !important;
+  border: 0 !important;
+}
+#MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item .sub-menu .nav-item .nav-link::before {
+  display: block !important;
+}
+#MainHeader .main-nav .navbar-nav > .nav-item > .mega-sub-menu-wrapper .mega-menu-row .mega-sub-menu .mega-sub-menu-column > .sub-menu > .nav-item .sub-menu .nav-item .nav-link:hover {
   color: #2EA9A1 !important;
 }
 #MainHeader .main-nav .navbar-nav > .nav-item:hover .mega-sub-menu-wrapper, #MainHeader .main-nav .navbar-nav > .nav-item:hover .mega-sub-menu-wrapper > .nav-item,
