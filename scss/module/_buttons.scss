@@ -201,5 +201,14 @@
 			background-color: $color-1;
 			color: #fff !important;
 		}
+		&.gray-header-btn {
+			color: $color-6 !important;
+			border-color: $color-6;
+
+			&:hover {
+				background-color: $color-6;
+				color: #fff !important;
+			}
+		}
 	}
 }

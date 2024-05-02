@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	);
 	const navItems = document.querySelectorAll('.nav-item');
 
-	/* REMOVE if (html.classList.contains('touch-enabled') || window.innerWidth < 992) {
+	if (html.classList.contains('touch-enabled') || window.innerWidth < 992) {
 		navItems.forEach(function (navItem) {
 			if (navItem.querySelector('.sub-menu')) {
 				navItem.classList.add('has-child');
@@ -105,10 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
 				});
 			}
 		});
-	} REMOVE */
+	}
 
 	// Desktop only behavior
-	/* REMOVE if (window.innerWidth >= 992) { REMOVE */
 	primaryNavItems.forEach(function (navItem) {
 		navItem.addEventListener('mouseenter', function () {
 			const subMenu = navItem.querySelector(':scope > .sub-menu');
