@@ -2,7 +2,7 @@
 
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
 	console.log('The device is touch-enabled.');
-	// document.querySelector('html').classList.add('touch-enabled');
+	document.querySelector('html').classList.add('touch-enabled');
 }
 
 function addClassOnScroll() {
@@ -172,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			originalActiveCard.classList.add('active');
 		}
 	});
-	/* REMOVE } REMOVE */
 
 	// Footer Nav Dropdowns
 	const footerNavItems = document.querySelectorAll(
